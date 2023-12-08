@@ -71,7 +71,7 @@ class MyMainForm(QMainWindow, Ui_Form):
             self.label.setText("filename")
             return
         
-        self.file_name_list = sorted(glob.glob(self.source_image_path + "*.raw"), key=lambda name: name[:-4])
+        self.file_name_list = sorted(glob.glob(self.source_image_path + "*.raw"), key=os.path.getmtime)
         self.index = -1
         self.show_next_image(1)
     
